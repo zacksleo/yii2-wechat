@@ -1,4 +1,4 @@
-# Yii2 Wechat Module
+# Yii2 Wechat Module For Backend
  
 ## Quick Start
 
