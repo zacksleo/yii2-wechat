@@ -1,0 +1,25 @@
+<?php
+return [
+    'id' => 'ID',
+    'Icon' => '图标',
+    'Icon Type' => '图标类型',
+    'Active' => '激活',
+    'Read Only' => '只读',
+    'Root' => '顶级',
+    'Selected' => '选中',
+    'Name' => '名称',
+    'Visible' => '显示',
+    'Collapsed' => '折叠',
+    'Nested set left property' => '嵌套集左属性',
+    'Nested set right property' => '嵌套集右属性',
+    'Nested set level / depth' => '嵌套集深度',
+    'Disabled' => '禁用',
+    'Up Movable' => '可上移',
+    'Down Movable' => '可下移',
+    'Movable To The Left' => '可左移',
+    'Movable To The Right' => '可右移',
+    'Removable' => '可删除',
+    'Removable Along With Descendants' => '子菜单关联删除',
+    'Url' => '链接',
+];
+?>
