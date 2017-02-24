@@ -18,4 +18,5 @@ composer require zacksleo\yii2-wechat
 yii migrate/up --migrationPath=@zacksleo/yii2/wechat/migrations
 
 ```
-
+* Screenshot
+![](http://ww2.sinaimg.cn/large/675eb504gw1faf64i67huj212d0itgnw.jpg)
