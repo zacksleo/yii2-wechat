@@ -1,2 +1,5 @@
 .idea
 !.gitignore
+package.json
+node_modules
+
