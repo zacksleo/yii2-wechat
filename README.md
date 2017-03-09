@@ -1,16 +1,16 @@
-# Yii2 Wechat Module For Backend,  Yii2 后台微信模块
+# Yii2 后台微信模块
  
-## Quick Start 
+## 快速开始
 
-* Requirement
+* 准备工作
 
-  Config [yii2-easy-wechat](https://github.com/max-wen/yii2-easy-wechat) First  
+   ### 首先配置 [yii2-easy-wechat](https://github.com/max-wen/yii2-easy-wechat)   
 
    ### 配置模块依赖
   
   > 注意 layout和layoutPath写实际使用的布局文件, 文件内容参考 src/layouts
   
-  #### 配置component
+  #### 配置 component
   
   ```
   'components' => [
@@ -26,7 +26,7 @@
 
   ```
     
-  #### 配置modules
+  #### 配置 modules
    
     ```
     'modules' => [
@@ -47,17 +47,17 @@
             
    ```
 
-* Installation
+* 安装 
 
 ```
 composer require zacksleo\yii2-wechat
 
 ```
-* Migration
+* 数据库迁移
 
 ```
 yii migrate/up --migrationPath=@zacksleo/yii2/wechat/migrations
 
 ```
-* Screenshot
+* 截图
 ![](http://ww2.sinaimg.cn/large/675eb504gw1faf64i67huj212d0itgnw.jpg)
