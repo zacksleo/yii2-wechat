@@ -11,17 +11,11 @@
   > 注意 layout和layoutPath写实际使用的布局文件, 文件内容参考 src/layouts
    
     ```
-  'pages' => [
-       'class' => 'bupy7\pages\Module',
-       'tableName' => '{{%page}}',
-       'layout' => '@app/themes/mp/views/layouts/console',
-       'layoutPath' => '@app/themes/mp/views/layouts',
-       'imperaviLanguage' => 'zh_cn',
-   ],
-  'settings' => [
+    
+    'settings' => [
        'class' => 'pheme\settings\Module',
-  ],       
-  'treemanager' => [
+    ],       
+    'treemanager' => [
           'class' => 'kartik\tree\Module',
       ],
     'wechat' => [
