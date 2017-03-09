@@ -3,13 +3,13 @@
 
 ## 准备工作
 
-   ### 首先配置 [yii2-easy-wechat](https://github.com/max-wen/yii2-easy-wechat)   
+### 首先配置 [yii2-easy-wechat](https://github.com/max-wen/yii2-easy-wechat)   
 
-   ### 配置模块依赖
+### 配置模块依赖
   
-  > 注意 layout和layoutPath写实际使用的布局文件, 文件内容参考 src/layouts
+> 注意 layout和layoutPath写实际使用的布局文件, 文件内容参考 src/layouts
   
-  #### 配置 component
+#### 配置 component
   
 ```
 'components' => [
@@ -25,7 +25,7 @@
 
 ```
     
-  #### 配置 modules
+#### 配置 modules
    
 ```
 'modules' => [
@@ -46,7 +46,7 @@
         
 ```
    
- ## 安装 
+## 安装 
 
 ```
 composer require zacksleo\yii2-wechat
