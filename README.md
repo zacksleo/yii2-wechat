@@ -9,20 +9,39 @@
    ### 配置模块依赖
   
   > 注意 layout和layoutPath写实际使用的布局文件, 文件内容参考 src/layouts
+  
+  #### 配置component
+  
+  ```
+  'components' => [
+  
+       'settings' => [
+            'class' => 'pheme\settings\components\Settings',
+        ],
+        'easywechat' => [
+            'class' => 'maxwen\easywechat\Wechat',          
+        ],    
+  ]
+
+  ```
+    
+  #### 配置modules
    
     ```
-    
-    'settings' => [
-       'class' => 'pheme\settings\Module',
-    ],       
-    'treemanager' => [
-          'class' => 'kartik\tree\Module',
-      ],
-    'wechat' => [
-        'class' => 'zacksleo\yii2\wechat\Module',
-        'layout' => '@app/themes/mp/views/layouts/wechat',
-        'layoutPath' => '@app/themes/mp/views/layouts',
-    ],                
+    'modules' => [
+        'settings' => [
+           'class' => 'pheme\settings\Module',
+        ],       
+        'treemanager' => [
+              'class' => 'kartik\tree\Module',
+          ],
+        'wechat' => [
+            'class' => 'zacksleo\yii2\wechat\Module',
+            'layout' => '@app/themes/mp/views/layouts/wechat',
+            'layoutPath' => '@app/themes/mp/views/layouts',
+        ],    
+    ]
+            
    ```
 
 * Installation
