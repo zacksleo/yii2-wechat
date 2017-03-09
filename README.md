@@ -20,7 +20,8 @@
         ],
         'easywechat' => [
             'class' => 'maxwen\easywechat\Wechat',          
-        ],    
+        ],  
+          
   ]
 
   ```
@@ -29,6 +30,7 @@
    
     ```
     'modules' => [
+    
         'settings' => [
            'class' => 'pheme\settings\Module',
         ],       
@@ -40,6 +42,7 @@
             'layout' => '@app/themes/mp/views/layouts/wechat',
             'layoutPath' => '@app/themes/mp/views/layouts',
         ],    
+        
     ]
             
    ```
