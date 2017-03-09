@@ -1,0 +1,103 @@
+body {
+    background-color: #e7e8eb;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #44b549;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav.nav-tabs {
+    border-color: #44b549;
+}
+
+a {
+    color: #595959;
+}
+
+.label-info {
+    background-color: #FBC15E;
+}
+
+.btn-primary {
+    background-color: #44b549;
+    border-color: #44b549;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #44b549;
+    border-color: #44b549;
+}
+
+<!--
+.panel-info > .panel-heading {
+    border-color: #FBC15E;
+    color: #fff;
+    background-color: #FBC15E;
+}
+
+-->
+.alert-danger, .alert-info, .panel-info > .panel-heading {
+    border-color: #faebcc;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+}
+
+.panel-info {
+    border-color: #faebcc;
+}
+
+.text-danger {
+    color: #FBC15E;
+}
+
+.nav-tabs > li > a:hover {
+    border-color: #eee #eee #44b549 #eee;
+    color: #2d2d2d;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #44b549;
+    border-color: #44b549;
+}
+
+.well {
+    background-color: #FFF;
+    margin: 0 80px 0 80px;
+}
+
+.gw-container {
+    background: #e7e8eb url('./resource/hcwechat/hucebg.png') repeat;
+}
+
+.gw-container .breadcrumb {
+    background-color: #FFF;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #44b549;
+    border-color: #44b549;
+}
+
+.pagination > li > a, .pagination > li > span {
+    color: #44b549;
+}
+
+.gw-container .well .account .panel-heading a {
+    color: #44b549;
+}
+
+.gw-container .tile:hover {
+    background: #44b549;
+}
+
+.index_show_area a, .index_show_area a:hover, .index_show_area a:focus {
+    underline: none;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.panel-default > .panel-heading {
+    background-color: #FFF;
+}
+
+
