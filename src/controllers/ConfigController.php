@@ -21,7 +21,7 @@ class ConfigController extends Controller
         return parent::beforeAction($action);
     }
 
-    function actions()
+    public function actions()
     {
         return [
             //....
@@ -40,5 +40,4 @@ class ConfigController extends Controller
             //....
         ];
     }
-
 }

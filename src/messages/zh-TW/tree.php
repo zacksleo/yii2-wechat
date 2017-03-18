@@ -22,4 +22,3 @@ return [
     'Removable Along With Descendants' => '子菜單關聯刪除',
     'Url' => '鏈接',
 ];
-?>

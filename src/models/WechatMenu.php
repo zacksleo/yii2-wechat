@@ -128,7 +128,6 @@ class WechatMenu extends Tree
 
     protected function refresh2Api()
     {
-
         $buttons = [];
         $roots = WechatMenu::find()->roots()->all();
         foreach ($roots as $vo) {

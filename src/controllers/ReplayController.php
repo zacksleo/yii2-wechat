@@ -6,8 +6,7 @@ use yii\web\Controller;
 
 class ReplayController extends Controller
 {
-
-
+    
     function actions()
     {
         return [

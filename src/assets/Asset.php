@@ -5,7 +5,6 @@ use yii\web\AssetBundle;
 
 class Asset extends AssetBundle
 {
-
     public $sourcePath = '@vendor/zacksleo/yii2-wechat/src/assets';
 
     public $css = [

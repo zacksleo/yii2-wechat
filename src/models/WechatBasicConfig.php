@@ -6,7 +6,10 @@ use yii\base\Model;
 
 class WechatBasicConfig extends Model
 {
-    public $appId, $appSecret, $token, $encodingAESKey;
+    public $appId;
+    public $appSecret;
+    public $token;
+    public $encodingAESKey;
 
     public function rules()
     {

@@ -40,7 +40,6 @@ class ApiController extends Controller
                     return '您好!欢迎关注我!';
                     break;
             }
-
         });
         $response = $server->serve();
         return $response->send();
