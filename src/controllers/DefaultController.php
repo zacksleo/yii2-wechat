@@ -12,9 +12,7 @@ use app\models\User;
  * Default controller for the `portal` module
  */
 class DefaultController extends Controller
-
 {
-
     public function behaviors()
     {
         return [
@@ -36,7 +34,6 @@ class DefaultController extends Controller
                 'denyCallback' => function ($rule, $action) {
                     return $this->redirect('/console/default/login');
                 }
-
             ]
         ];
     }

@@ -117,7 +117,6 @@ class WechatMenu extends Tree
     {
         parent::afterSave($insert, $changedAttributes);
         $this->refresh2Api();
-
     }
 
     public function afterDelete()

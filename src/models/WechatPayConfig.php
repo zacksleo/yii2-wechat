@@ -1,18 +1,19 @@
 <?php
 namespace zacksleo\yii2\wechat\models;
 
-
 use yii\base\Model;
 
 class WechatPayConfig extends Model
 {
-    public $active, $merchantId, $merchantSecret;
+    public $active;
+    public $merchantId;
+    public $merchantSecret;
 
     public function rules()
     {
         return [
             [['merchantId', 'merchantSecret'], 'string'],
-            ['active','integer']
+            ['active', 'integer']
         ];
     }
 

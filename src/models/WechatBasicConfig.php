@@ -1,7 +1,6 @@
 <?php
 namespace zacksleo\yii2\wechat\models;
 
-
 use yii\base\Model;
 
 class WechatBasicConfig extends Model
