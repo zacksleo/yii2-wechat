@@ -1,5 +1,8 @@
 # Yii2 后台微信模块
- 
+
+[![Latest Stable Version](https://poser.pugx.org/zacksleo/yii2-wechat/version)](https://packagist.org/packages/yii2-wechat/phpsms)
+[![Total Downloads](https://poser.pugx.org/zacksleo/yii2-wechat/downloads)](https://packagist.org/packages/yii2-wechat/phpsms)
+[![License](https://poser.pugx.org/zacksleo/yii2-wechat/license)](https://packagist.org/packages/yii2-wechat/phpsms)
 
 ## 准备工作
 
