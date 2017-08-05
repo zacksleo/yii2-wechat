@@ -22,9 +22,39 @@
     ],
     'easywechat' => [
         'class' => 'maxwen\easywechat\Wechat',          
-    ],  
-      
+    ],       
 ]
+
+```
+
+#### 配置数据库迁移
+
+对于高级模板（yii2-app-advanced）, 配置 `console/config/main.php` 文件：
+
+```
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@console/migrations/',
+                '@pheme/settings/migrations'
+            ],
+        ],
+    ], 
+    
+```
+对于基础模板 （yii2-app-basic）, 配置 `config/console.php` 文件：
+
+```
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@app/migrations/',
+                '@pheme/settings/migrations'
+            ],
+        ],
+    ], 
 
 ```
     
@@ -43,8 +73,7 @@
         'class' => 'zacksleo\yii2\wechat\Module',
         'layout' => '@app/themes/mp/views/layouts/wechat',
         'layoutPath' => '@app/themes/mp/views/layouts',
-    ],    
-    
+    ],
 ]
         
 ```
@@ -52,7 +81,7 @@
 ## 安装 
 
 ```
-composer require zacksleo\yii2-wechat
+composer require zacksleo\yii2-wechat --prefer-dist 
 
 ```
 
