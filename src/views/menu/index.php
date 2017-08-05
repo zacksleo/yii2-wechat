@@ -3,7 +3,7 @@
 use zacksleo\yii2\wechat\models\WechatMenu;
 
 Yii::$app->getModule('treemanager')->treeViewSettings = [
-    'nodeView' => '@vendor/zacksleo/yii2-wechat/views/menu/_form'
+    'nodeView' => '@vendor/zacksleo/yii2-wechat/src/views/menu/_form'
 ];
 Yii::$app->getModule('treemanager')->init();
 
