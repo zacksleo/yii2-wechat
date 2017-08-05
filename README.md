@@ -42,8 +42,6 @@
       ],
     'wechat' => [
         'class' => 'zacksleo\yii2\wechat\Module',
-        'layout' => '@app/themes/mp/views/layouts/wechat',
-        'layoutPath' => '@app/themes/mp/views/layouts',
     ],
 ]
         
