@@ -14,7 +14,7 @@ class LoginAssetTest extends TestCase
         LoginAsset::register($view);
         $this->assertEquals(3, count($view->assetBundles));
         $this->assertArrayHasKey('zacksleo\\yii2\\wechat\\assets\\LoginAsset', $view->assetBundles);
-        $this->assertArrayHasKey('yii\\web\\YiiAssett', $view->assetBundles);
+        $this->assertArrayHasKey('yii\\web\\YiiAsset', $view->assetBundles);
         $content = $view->renderFile('@tests/data/views/layout.php');
         $this->assertContains('css/processor_bar218878.css', $content);
         $this->assertContains('css/page_login218878.css', $content);

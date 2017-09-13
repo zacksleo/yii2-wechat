@@ -69,14 +69,26 @@ class TestCase extends \PHPUnit\Framework\TestCase
                         ]
                     ],
                 ],
+                'easywechat' => [
+                    'class' => 'maxwen\easywechat\Wechat',
+                ]
             ],
             'modules' => [
+                'treemanager' => [
+                    'class' => '\kartik\tree\Module',
+                ],
                 'wechat' => [
                     'class' => 'zacksleo\yii2\wechat\Module',
                     'controllerNamespace' => 'tests\data\controllers'
                 ]
-            ]
-        ], $config));
+            ],
+            'params' => [
+                'WECHAT' => [
+
+                ]
+            ],
+        ],
+            $config));
     }
 
     /**

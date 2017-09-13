@@ -4,6 +4,7 @@ namespace tests\assets;
 
 use tests\TestCase;
 use zacksleo\yii2\wechat\assets\Asset;
+use yii\web\AssetBundle;
 
 /**
  * Class AssetTest
@@ -18,7 +19,7 @@ class AssetTest extends TestCase
         $this->assertEmpty($view->assetBundles);
         Asset::register($view);
         $this->assertEquals(4, count($view->assetBundles));
-        $this->assertArrayHasKey('zacksleo\\yii2\\wechat\\assets\\basics\\Asset', $view->assetBundles);
+        $this->assertArrayHasKey('zacksleo\\yii2\\wechat\\assets\\Asset', $view->assetBundles);
         $this->assertTrue($view->assetBundles['yii\\bootstrap\\BootstrapAsset'] instanceof AssetBundle);
         $this->assertTrue($view->assetBundles['yii\\bootstrap\\BootstrapPluginAsset'] instanceof AssetBundle);
         $content = $view->renderFile('@tests/data/views/layout.php');
