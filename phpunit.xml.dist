@@ -15,7 +15,7 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src/models</directory>
-            <directory suffix=".php">./src/actions</directory>
+            <directory suffix=".php">./src/assets</directory>
         </whitelist>
         <blacklist>
             <directory suffix=".php">./vendor</directory>

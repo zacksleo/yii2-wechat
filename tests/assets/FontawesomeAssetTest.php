@@ -16,7 +16,7 @@ class FontawesomeAssetTest extends TestCase
     {
         $view = $this->getView();
         $this->assertEmpty($view->assetBundles);
-        Asset::register($view);
+        FontAwesomeAsset::register($view);
         $this->assertEquals(1, count($view->assetBundles));
         $this->assertArrayHasKey('zacksleo\\yii2\\wechat\\assets\\FontAwesomeAsset', $view->assetBundles);
         $content = $view->renderFile('@tests/data/views/layout.php');

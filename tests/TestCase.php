@@ -5,7 +5,8 @@ namespace tests;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
-use yii\db\Schema;
+use yii\web\AssetManager;
+use yii\web\View;
 
 /**
  * This is the base class for all yii framework unit tests.
@@ -33,6 +34,10 @@ class TestCase extends \PHPUnit\Framework\TestCase
             'id' => 'testapp',
             'basePath' => __DIR__,
             'vendorPath' => $this->getVendorPath(),
+            'aliases' => [
+                '@bower' => '@vendor/bower-asset',
+                '@npm' => '@vendor/npm-asset',
+            ],
             'components' => [
                 'db' => [
                     'class' => 'yii\db\Connection',
@@ -40,7 +45,13 @@ class TestCase extends \PHPUnit\Framework\TestCase
                 ],
                 'request' => [
                     'hostInfo' => 'http://domain.com',
-                    'scriptUrl' => 'index.php',
+                    'cookieValidationKey' => 'wefJDF8sfdsfSDefwqdxj9oq',
+                    'scriptFile' => __DIR__ . '/index.php',
+                    'scriptUrl' => '/index.php',
+                ],
+                'assetManager' => [
+                    'basePath' => '@tests/assets',
+                    'baseUrl' => '/',
                 ],
                 'user' => [
                     'identityClass' => 'tests\data\models\User',
@@ -49,18 +60,19 @@ class TestCase extends \PHPUnit\Framework\TestCase
                     'translations' => [
                         'zacksleo/yii2/feedback/*' => [
                             'class' => 'yii\i18n\PhpMessageSource',
-                            'basePath' => '@zacksleo/yii2/feedback/messages',
+                            'basePath' => '@zacksleo/yii2/wechat/messages',
                             'sourceLanguage' => 'en-US',
                             'fileMap' => [
-                                'zacksleo/yii2/feedback/feedback' => 'feedback.php',
+                                'zacksleo/yii2/wechat/core' => 'core.php',
+                                'zacksleo/yii2/wechat/tree' => 'tree.php',
                             ],
                         ]
                     ],
                 ],
             ],
             'modules' => [
-                'feedback' => [
-                    'class' => 'zacksleo\yii2\feedback\Module',
+                'wechat' => [
+                    'class' => 'zacksleo\yii2\wechat\Module',
                     'controllerNamespace' => 'tests\data\controllers'
                 ]
             ]
@@ -89,6 +101,29 @@ class TestCase extends \PHPUnit\Framework\TestCase
     protected function setupTestDbData()
     {
         $db = Yii::$app->getDb();
+        $db->createCommand()->createTable('wechat_menu', [
+            'id' => 'pk',
+            'root' => 'integer',
+            'lft' => 'integer not null',
+            'rgt' => 'integer not null',
+            'lvl' => 'smallint not null',
+            'name' => 'string(60) not null',
+            'icon' => 'string(255)',
+            'icon_type' => 'smallint not null default 1',
+            'active' => 'boolean not null default true',
+            'selected' => 'boolean not null default false',
+            'disabled' => 'boolean not null default false',
+            'readonly' => 'boolean not null default false',
+            'visible' => 'boolean not null default true',
+            'collapsed' => 'boolean not null default false',
+            'movable_u' => 'boolean not null default true',
+            'movable_d' => 'boolean not null default true',
+            'movable_l' => 'boolean not null default true',
+            'movable_r' => 'boolean not null default true',
+            'removable' => 'boolean not null default true',
+            'removable_all' => 'boolean not null default false',
+            'url' => 'string',
+        ])->execute();
     }
 
     /**

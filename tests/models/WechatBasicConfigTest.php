@@ -26,19 +26,13 @@ class WechatBasicConfigTest extends TestCase
     {
         $model = new WechatBasicConfig();
         $fields = $model->fields();
-        $this->assertArrayHasKey('appId', $fields);
-        $this->assertArrayHasKey('appSecret', $fields);
-        $this->assertArrayHasKey('token', $fields);
-        $this->assertArrayHasKey('encodingAESKey', $fields);
+        $this->assertEquals(['appId', 'appSecret', 'token', 'encodingAESKey'], $fields);
     }
 
     public function testAttributes()
     {
         $model = new WechatBasicConfig();
         $attributes = $model->attributes();
-        $this->assertArrayHasKey('appId', $attributes);
-        $this->assertArrayHasKey('appSecret', $attributes);
-        $this->assertArrayHasKey('token', $attributes);
-        $this->assertArrayHasKey('encodingAESKey', $attributes);
+        $this->assertEquals(['appId', 'appSecret', 'token', 'encodingAESKey'], $attributes);
     }
 }

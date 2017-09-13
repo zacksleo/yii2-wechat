@@ -25,17 +25,13 @@ class WechatPayConfigTest extends TestCase
     {
         $model = new WechatPayConfig();
         $fields = $model->fields();
-        $this->assertArrayHasKey('merchantId', $fields);
-        $this->assertArrayHasKey('merchantSecret', $fields);
-        $this->assertArrayHasKey('active', $fields);
+        $this->assertEquals(['active', 'merchantId', 'merchantSecret'], $fields);
     }
 
     public function testAttributes()
     {
         $model = new WechatPayConfig();
         $attributes = $model->attributes();
-        $this->assertArrayHasKey('merchantId', $attributes);
-        $this->assertArrayHasKey('merchantSecret', $attributes);
-        $this->assertArrayHasKey('active', $attributes);
+        $this->assertEquals(['active', 'merchantId', 'merchantSecret'], $attributes);
     }
 }
