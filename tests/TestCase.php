@@ -89,7 +89,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
     protected function setupTestDbData()
     {
         $db = Yii::$app->getDb();
-
     }
 
     /**
