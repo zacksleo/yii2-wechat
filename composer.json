@@ -20,7 +20,7 @@
     "pheme/yii2-settings": "dev-master",
     "maxwen/yii2-easy-wechat": "^1.0",
     "kartik-v/yii2-tree-manager": "dev-master",
-    "bower-asset/font-awesome": "^4.7"
+    "npm-asset/font-awesome": "^4.7"
   },
   "autoload": {
     "psr-4": {

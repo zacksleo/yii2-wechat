@@ -99,4 +99,19 @@ class TestCase extends \PHPUnit\Framework\TestCase
     {
         FileHelper::createDirectory(dirname(__DIR__) . '/tests/runtime');
     }
+
+    /**
+     * Creates a view for testing purposes
+     *
+     * @return View
+     */
+    protected function getView()
+    {
+        $view = new View();
+        $view->setAssetManager(new AssetManager([
+            'basePath' => '@tests/data/assets',
+            'baseUrl' => '/',
+        ]));
+        return $view;
+    }
 }
