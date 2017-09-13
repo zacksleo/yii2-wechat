@@ -22,6 +22,9 @@
     "kartik-v/yii2-tree-manager": "dev-master",
     "npm-asset/font-awesome": "^4.7"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4"
+  },
   "autoload": {
     "psr-4": {
       "zacksleo\\yii2\\wechat\\": "src"
