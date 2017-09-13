@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tests\models;
-
 
 use tests\TestCase;
 use zacksleo\yii2\wechat\models\WechatBasicConfig;

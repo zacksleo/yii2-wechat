@@ -11,5 +11,4 @@ use tests\TestCase;
  */
 class WechatMenuTest extends TestCase
 {
-
 }
