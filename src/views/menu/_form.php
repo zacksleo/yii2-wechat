@@ -74,7 +74,7 @@ $glue = ArrayHelper::getValue($breadcrumbs, 'glue');
 $activeCss = ArrayHelper::getValue($breadcrumbs, 'activeCss');
 $untitled = ArrayHelper::getValue($breadcrumbs, 'untitled');
 $name = $node->getBreadcrumbs($depth, $glue, $activeCss, $untitled);
-if ($node->isNewRecord && !empty($parentKey) && $parentKey !== 'root') {
+if ($node->isNewRecord && !empty($parentKey) && $parentKey !== TreeView::ROOT_KEY) {
     /**
      * @var Tree $modelClass
      * @var Tree $parent
@@ -200,13 +200,7 @@ echo $renderContent(Module::VIEW_PART_1);
     <?php endif; ?>
     <?php if ($iconsList === 'text'): ?>
         <div class="row">
-            <div class="col-sm-4">
-                <?= $form->field($node, $iconTypeAttribute)->dropdownList([
-                    TreeView::ICON_CSS => 'CSS Suffix',
-                    TreeView::ICON_RAW => 'Raw Markup',
-                ], $inputOpts) ?>
-            </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8 col-sm-offset-4">
                 <?= $form->field($node, 'url')->textInput($inputOpts) ?>
             </div>
         </div>
@@ -250,49 +244,6 @@ echo $renderContent(Module::VIEW_PART_1);
  * SECTION 8: Administrator attributes zone.
  */
 ?>
-<?php if ($isAdmin): ?>
-    <h4><?= Yii::t('kvtree', 'Admin Settings') ?></h4>
-
-    <?php
-    /**
-     * SECTION 9: Additional views part 3 - within admin zone BEFORE mandatory attributes.
-     */
-    ?>
-    <?= $renderContent(Module::VIEW_PART_3) ?>
-
-    <?php
-    /**
-     * SECTION 10: Default mandatory admin controlled attributes.
-     */
-    ?>
-    <div class="row">
-        <div class="col-sm-4">
-            <?= $form->field($node, 'active')->checkbox() ?>
-            <?= $form->field($node, 'selected')->checkbox() ?>
-            <?= $form->field($node, 'collapsed')->checkbox($flagOptions) ?>
-            <?= $form->field($node, 'visible')->checkbox() ?>
-        </div>
-        <div class="col-sm-4">
-            <?= $form->field($node, 'readonly')->checkbox() ?>
-            <?= $form->field($node, 'disabled')->checkbox() ?>
-            <?= $form->field($node, 'removable')->checkbox() ?>
-            <?= $form->field($node, 'removable_all')->checkbox($flagOptions) ?>
-        </div>
-        <div class="col-sm-4">
-            <?= $form->field($node, 'movable_u')->checkbox() ?>
-            <?= $form->field($node, 'movable_d')->checkbox() ?>
-            <?= $form->field($node, 'movable_l')->checkbox() ?>
-            <?= $form->field($node, 'movable_r')->checkbox() ?>
-        </div>
-    </div>
-
-    <?php
-    /**
-     * SECTION 11: Additional views part 4 - within admin zone AFTER mandatory attributes.
-     */
-    ?>
-    <?= $renderContent(Module::VIEW_PART_4) ?>
-<?php endif; ?>
 <?php ActiveForm::end() ?>
 
 <?php
