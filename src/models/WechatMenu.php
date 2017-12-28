@@ -2,6 +2,7 @@
 
 namespace zacksleo\yii2\wechat\models;
 
+use EasyWeChat\Factory;
 use kartik\tree\models\Tree;
 use yii;
 use zacksleo\yii2\wechat\Module;
@@ -151,7 +152,8 @@ class WechatMenu extends Tree
                     'sub_button' => $sub_button
                 ];
             }
-            Yii::$app->easywechat->menu->add($buttons);
+            $app = Factory::officialAccount(Yii::$app->params['wechat.officialAccount']);
+            $app->menu->create($buttons);
         }
     }
 }
