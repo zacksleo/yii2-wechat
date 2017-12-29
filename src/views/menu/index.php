@@ -14,6 +14,6 @@ echo \kartik\tree\TreeView::widget([
     'fontAwesome' => true,
     'isAdmin' => true,
     'displayValue' => 1,
-    'softDelete' => true,
+    'softDelete' => false,
     'cacheSettings' => ['enableCache' => true],
 ]);
