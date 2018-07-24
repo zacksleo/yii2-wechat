@@ -17,7 +17,7 @@
   "require": {
     "yiisoft/yii2": "*",
     "yiisoft/yii2-bootstrap": "*",
-    "pheme/yii2-settings": "dev-master",
+    "pheme/yii2-settings": "^0.6",
     "kartik-v/yii2-tree-manager": "^1.0",
     "npm-asset/font-awesome": "^4.7",
     "overtrue/wechat": "^4.0"
