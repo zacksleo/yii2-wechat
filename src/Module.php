@@ -24,15 +24,6 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $layout = 'main';
-    /**
-     * @inheritdoc
-     */
-    //public $layoutPath = 'app\modules\wechat\themes\wechat\views\layouts';
-
-    /**
-     * @inheritdoc
-     */
     public function init()
     {
         parent::init();
