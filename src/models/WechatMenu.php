@@ -33,7 +33,6 @@ use zacksleo\yii2\wechat\Module;
  */
 class WechatMenu extends Tree
 {
-
     const TYPE_CLICK = 'click';
     const TYPE_VIEW = 'view';
     const TYPE_SCANCODE_PUSH = 'scancode_push';

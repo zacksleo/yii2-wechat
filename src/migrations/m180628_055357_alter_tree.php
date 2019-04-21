@@ -1,5 +1,6 @@
 <?php
 use yii\db\Migration;
+
 /**
  * Class m180628_055357_alter_tree
  */
