@@ -12,6 +12,7 @@ use kartik\tree\models\Tree;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\web\View;
+use zacksleo\yii2\wechat\models\WechatMenu;
 
 /**
  * @var View       $this
@@ -132,43 +133,43 @@ $renderContent = function ($part) use ($nodeAddlViews, $params, $form) {
  * SECTION 3: Setup form action buttons.
  */
 ?>
-    <div class="kv-detail-heading">
-        <?php if (empty($inputOpts['disabled']) || ($isAdmin && $showFormButtons)): ?>
-            <div class="pull-right">
-                <button type="reset" class="btn btn-default btn-sm" title="<?= Yii::t('kvtree', 'Reset') ?>">
-                    <i class="fa fa-refresh"></i>
-                </button>
-                <button type="submit" class="btn btn-primary btn-sm" title="<?= Yii::t('kvtree', 'Save') ?>">
-                    <i class="fa fa-save"></i>
-                </button>
-            </div>
-        <?php endif; ?>
-        <div class="kv-detail-crumbs"><?= $name ?></div>
-        <div class="clearfix"></div>
-    </div>
+<div class="kv-detail-heading">
+    <?php if (empty($inputOpts['disabled']) || ($isAdmin && $showFormButtons)) : ?>
+        <div class="pull-right">
+            <button type="reset" class="btn btn-default btn-sm" title="<?= Yii::t('kvtree', 'Reset') ?>">
+                <i class="fa fa-refresh"></i>
+            </button>
+            <button type="submit" class="btn btn-primary btn-sm" title="<?= Yii::t('kvtree', 'Save') ?>">
+                <i class="fa fa-save"></i>
+            </button>
+        </div>
+    <?php endif; ?>
+    <div class="kv-detail-crumbs"><?= $name ?></div>
+    <div class="clearfix"></div>
+</div>
 
 <?php
 /**
  * SECTION 4: Setup alert containers. Mandatory to set this up.
  */
 ?>
-    <div class="kv-treeview-alerts">
-        <?php
-        $session = Yii::$app->session;
-        if ($session->hasFlash('success')) {
-            echo $showAlert('success', $session->getFlash('success'), false);
-        } else {
-            echo $showAlert('success');
-        }
-        if ($session->hasFlash('error')) {
-            echo $showAlert('danger', $session->getFlash('error'), false);
-        } else {
-            echo $showAlert('danger');
-        }
-        echo $showAlert('warning');
-        echo $showAlert('info');
-        ?>
-    </div>
+<div class="kv-treeview-alerts">
+    <?php
+    $session = Yii::$app->session;
+    if ($session->hasFlash('success')) {
+        echo $showAlert('success', $session->getFlash('success'), false);
+    } else {
+        echo $showAlert('success');
+    }
+    if ($session->hasFlash('error')) {
+        echo $showAlert('danger', $session->getFlash('error'), false);
+    } else {
+        echo $showAlert('danger');
+    }
+    echo $showAlert('warning');
+    echo $showAlert('info');
+    ?>
+</div>
 
 <?php
 /**
@@ -184,8 +185,8 @@ echo $renderContent(Module::VIEW_PART_1);
  * SECTION 6: Basic node attributes for editing.
  */
 ?>
-<?php if ($iconsList == 'text' || $iconsList == 'none'): ?>
-    <?php if ($showIDAttribute): ?>
+<?php if ($iconsList == 'text' || $iconsList == 'none') : ?>
+    <?php if ($showIDAttribute) : ?>
         <div class="row">
             <div class="col-sm-4">
                 <?= $keyField ?>
@@ -194,18 +195,23 @@ echo $renderContent(Module::VIEW_PART_1);
                 <?= $form->field($node, $nameAttribute)->textInput($inputOpts) ?>
             </div>
         </div>
-    <?php else: ?>
+    <?php else : ?>
         <?= $keyField ?>
         <?= $form->field($node, $nameAttribute)->textInput($inputOpts) ?>
     <?php endif; ?>
-    <?php if ($iconsList === 'text'): ?>
+    <?php if ($iconsList === 'text') : ?>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-4">
+                <?= $form->field($node, 'type')->radioList(WechatMenu::getTypeList(), ['inline' => false]); ?>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-4">
                 <?= $form->field($node, 'url')->textInput($inputOpts) ?>
             </div>
         </div>
     <?php endif; ?>
-<?php else: ?>
+<?php else : ?>
     <div class="row">
         <div class="col-sm-6">
             <?= $keyField ?>
@@ -213,21 +219,22 @@ echo $renderContent(Module::VIEW_PART_1);
             <?= $form->field($node, $nameAttribute)->textArea(['rows' => 3] + $inputOpts) ?>
         </div>
         <div class="col-sm-6">
-            <?= /** @noinspection PhpUndefinedMethodInspection */
-            $form->field($node, $iconAttribute)->multiselect($iconsList, [
-                'item' => function ($index, $label, $name, $checked, $value) use ($inputOpts) {
-                    if ($index == 0 && $value == '') {
-                        $checked = true;
-                        $value = '';
-                    }
-                    return '<div class="radio">' . Html::radio($name, $checked, [
-                        'value' => $value,
-                        'label' => $label,
-                        'disabled' => !empty($inputOpts['readonly']) || !empty($inputOpts['disabled'])
-                    ]) . '</div>';
-                },
-                'selector' => 'radio',
-            ]) ?>
+            <?=
+                /** @noinspection PhpUndefinedMethodInspection */
+                $form->field($node, $iconAttribute)->multiselect($iconsList, [
+                    'item' => function ($index, $label, $name, $checked, $value) use ($inputOpts) {
+                        if ($index == 0 && $value == '') {
+                            $checked = true;
+                            $value = '';
+                        }
+                        return '<div class="radio">' . Html::radio($name, $checked, [
+                            'value' => $value,
+                            'label' => $label,
+                            'disabled' => !empty($inputOpts['readonly']) || !empty($inputOpts['disabled'])
+                        ]) . '</div>';
+                    },
+                    'selector' => 'radio',
+                ]) ?>
         </div>
     </div>
 <?php endif; ?>
