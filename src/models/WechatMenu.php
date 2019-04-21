@@ -33,6 +33,18 @@ use zacksleo\yii2\wechat\Module;
  */
 class WechatMenu extends Tree
 {
+    const TYPE_CLICK = 'click';
+    const TYPE_VIEW = 'view';
+    const TYPE_SCANCODE_PUSH = 'scancode_push';
+    const TYPE_SCANCODE_WAITMSG = 'scancode_waitmsg';
+    const TYPE_PIC_SYSPHOTO = 'pic_sysphoto';
+    const TYPE_PIC_PHOTO_OR_ALBUM = 'pic_photo_or_album';
+    const TYPE_PIC_WEIXIN = 'pic_weixin';
+    const TYPE_LOCATION_SELECT = 'location_select';
+    const TYPE_MEDIA_ID = 'media_id';
+    const TYPE_VIEW_LIMITED = 'view_limited';
+    const TYPE_MINI_PROGRAM = 'miniprogram';
+
     public function init()
     {
         parent::init();
@@ -78,9 +90,9 @@ class WechatMenu extends Tree
                 'integer'
             ],
             [['lft', 'rgt', 'lvl', 'name'], 'required'],
-            [['name', 'url'], 'string', 'max' => 60],
-            [['icon'], 'string', 'max' => 255],
-
+            [['name'], 'string', 'max' => 60],
+            [['icon', 'url'], 'string', 'max' => 255],
+            ['type', 'in', 'range' => array_keys(self::getTypeList())]
         ];
     }
 
@@ -90,6 +102,7 @@ class WechatMenu extends Tree
     public function attributeLabels()
     {
         return [
+            'type' => '类型',
             'id' => Module::t('tree', 'ID'),
             'root' => Module::t('tree', 'Root'),
             'lft' => Module::t('tree', 'Nested set left property'),
@@ -114,6 +127,23 @@ class WechatMenu extends Tree
         ];
     }
 
+    public static function getTypeList()
+    {
+        return [
+            self::TYPE_CLICK => '点击事件',
+            self::TYPE_VIEW => '网页跳转',
+            self::TYPE_SCANCODE_PUSH => '扫码推送',
+            self::TYPE_SCANCODE_WAITMSG => '扫码上传',
+            self::TYPE_PIC_SYSPHOTO => '拍照上传',
+            self::TYPE_PIC_PHOTO_OR_ALBUM => '上传照片',
+            self::TYPE_PIC_WEIXIN => '微信相册',
+            self::TYPE_LOCATION_SELECT => '发送位置',
+            self::TYPE_MEDIA_ID => '发送素材',
+            self::TYPE_VIEW_LIMITED => '发送图文',
+            self::TYPE_MINI_PROGRAM => '小程序'
+        ];
+    }
+
     public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert, $changedAttributes);
@@ -134,26 +164,54 @@ class WechatMenu extends Tree
             $children = $vo->children()->all();
             $sub_button = [];
             foreach ($children as $vo2) {
-                $sub_button[] = [
-                    'type' => 'view',
-                    'name' => $vo2->name,
-                    'url' => $vo2->url
-                ];
+                $sub_button[] = $this->parseConfig($vo2);
             }
             if (empty($sub_button)) {
-                $buttons[] = [
-                    'type' => 'view',
-                    'name' => $vo->name,
-                    'url' => $vo->url
-                ];
+                $buttons[] = $this->parseConfig($vo);
             } else {
                 $buttons[] = [
                     'name' => $vo->name,
                     'sub_button' => $sub_button
                 ];
             }
-            $app = Factory::officialAccount(Yii::$app->params['wechat.officialAccount']);
-            $app->menu->create($buttons);
+        }
+        $app = Factory::officialAccount(Yii::$app->params['wechat.officialAccount']);
+        $app->menu->create($buttons);
+    }
+
+    private function parseConfig($model)
+    {
+        switch ($model->type) {
+            case self::TYPE_CLICK:
+            case self::TYPE_SCANCODE_WAITMSG:
+            case self::TYPE_SCANCODE_PUSH:
+            case self::TYPE_PIC_SYSPHOTO:
+            case self::TYPE_PIC_PHOTO_OR_ALBUM:
+            case self::TYPE_PIC_WEIXIN:
+            case self::TYPE_LOCATION_SELECT:
+                return [
+                    'type' => $model->type,
+                    'name' => $model->name,
+                    'key' => $model->url
+                ];
+                break;
+            case self::TYPE_VIEW:
+                return [
+                    'type' => $model->type,
+                    'name' => $model->name,
+                    'url' => $model->url
+                ];
+                break;
+            case self::TYPE_MINI_PROGRAM:
+                $conf = json_decode($model->url, true);
+                return [
+                    'type' => $model->type,
+                    'name' => $model->name,
+                    'url' => $conf['url'],
+                    'appid' => $conf['appid'],
+                    'pagepath' => $conf['pagepath']
+                ];
+                break;
         }
     }
 }
