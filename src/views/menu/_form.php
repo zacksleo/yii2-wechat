@@ -207,7 +207,7 @@ echo $renderContent(Module::VIEW_PART_1);
         </div>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-4">
-                <?= $form->field($node, 'url')->textInput($inputOpts) ?>
+                <?= $form->field($node, 'url')->textarea(array_merge($inputOpts, ['rows' => 5])) ?>
             </div>
         </div>
     <?php endif; ?>
