@@ -17,12 +17,12 @@ class m190423_142721_create_wechat_news_table extends Migration
             'title' => $this->string()->notNull(),
             'content' => $this->text()->notNull(),
             'thumb' => $this->string(),
-            'digest' => $this->string(),
+            'digest' => $this->text(),
             'url' => $this->string(),
-            'media_id' => $this->string(),
             'thumb_media_id' => $this->string(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
+            'status' => $this->integer(),
             'released_at' => $this->integer(),
         ]);
     }

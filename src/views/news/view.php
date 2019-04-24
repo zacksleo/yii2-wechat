@@ -1,9 +1,13 @@
 <?php
+use zacksleo\yii2\wechat\assets\IflyingAsset;
+
 /**
  * @see https://github.com/ufologist/wechat-mp-article
  */
 /** @var $model \zacksleo\yii2\wechat\common\models\WechatNews */
+IflyingAsset::register($this);
 ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
 
@@ -14,19 +18,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <meta name="referrer" content="never"/>
+    <meta name="referrer" content="never">
     <title>微信公众号图文消息默认样式</title>
-    <link rel="stylesheet" href="https://ufologist.github.io/wechat-mp-article/wx-mp.css">
-    <style>
-        .rich_media_content p {
-            clear: both;
-            min-height: 1em;
-            white-space: nowrap
-        }
-    </style>
+    <?php $this->head() ?>
 </head>
 
 <body id="activity-detail" class="zh_CN mm_appmsg" ontouchstart="">
+    <?php $this->beginBody() ?>
     <div id="js_article" class="rich_media">
         <div id="js_top_ad_area" class="top_banner"></div>
         <div class="rich_media_inner">
@@ -41,7 +39,7 @@
                         <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="javascript:void(0);" id="post-user"><?= Yii::$app->name; ?></a>
                     </div>
                     <div class="rich_media_content " id="js_content">
-                        <?= $model->content; ?>
+                        <?= str_replace('mmbiz.qpic.cn', 'mpt.135editor.com', $model->content); ?>
                     </div>
                     <div class="rich_media_tool" id="js_toobar3">
                         <a class="media_tool_meta meta_primary" id="js_view_source" href="<?= $model->url; ?>">阅读原文</a>
@@ -50,6 +48,8 @@
             </div>
         </div>
     </div>
+    <?php $this->endBody() ?>
 </body>
 
 </html>
+<?php $this->endPage() ?>

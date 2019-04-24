@@ -2,34 +2,49 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Wechat News';
+$this->title = '图文素材管理';
 $this->params['breadcrumbs'][] = $this->title;
+$url = Url::to(['news/post']);
 $css = <<<CSS
 td>img{width:120px;}
 CSS;
 $this->registerCss($css);
+$js = <<<JS
+    $('#post-to-wechat').click(function(){
+       var ids = $('#w0').yiiGridView('getSelectedRows');
+       if(ids.length == 0) {
+           alert('至少需要勾选一篇素材');
+           return;
+       }
+       if(ids.length>8){
+            alert('最多可以勾选8篇素材');
+           return;
+       }
+       window.location.href = "{$url}?ids="+ids.join(',');
+    });
+JS;
+$this->registerJs($js);
 ?>
 <div class="wechat-news-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <button id="post-to-wechat" class="btn btn-sm btn-success">发布到微信</button>
+    <br />
 
-    <p>
-        <?= Html::a('Create Wechat News', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\CheckboxColumn', 'name' => 'id'],
             'title',
             [
                 'attribute' => 'thumb',
                 'format' => 'image',
                 'value' => function ($model) {
-                    return str_replace('/var/www/html/frontend/web', '', $model->thumb);
+                    return $model->getCossdomThumb();
                 }
             ],
             [
@@ -41,6 +56,12 @@ $this->registerCss($css);
             // 'url:url',
             // 'media_id',
             // 'thumb_media_id',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    return $model->getStatus();
+                }
+            ],
             'created_at:date',
             'updated_at:date',
             'released_at:date',

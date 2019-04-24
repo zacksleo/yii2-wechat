@@ -49,7 +49,13 @@
                     <section style="box-sizing: border-box;">
                         <section style="box-sizing: border-box;">
                             <section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;box-sizing: border-box;">
-                                <img class=" __bg_gif" data-ratio="0.7434944" data-src="https://mmbiz.qpic.cn/mmbiz_gif/UuO6H0OvJ2j2ucvvglQUeCUribiaAAhHI1aKcbc0D5IQW5hnbkibl7tFdNNL79mp1kBibvkUuuBXVMOhATLzW8ia6eg/640?wx_fmt=gif" data-type="gif" data-w="269" style="vertical-align: middle; box-sizing: border-box; width: 269px !important; height: auto !important; visibility: visible !important;" _width="269px" src="https://mmbiz.qpic.cn/mmbiz_gif/UuO6H0OvJ2j2ucvvglQUeCUribiaAAhHI1aKcbc0D5IQW5hnbkibl7tFdNNL79mp1kBibvkUuuBXVMOhATLzW8ia6eg/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" data-order="4" data-fail="0"></section>
+                                <img class=" __bg_gif" data-ratio="0.7434944"
+                                data-type="gif" data-w="269"
+                                style="vertical-align: middle; box-sizing: border-box; width: 269px !important; height: auto !important; visibility: visible !important;"
+                                width="269px"
+                                src="https://mmbiz.qpic.cn/mmbiz_gif/UuO6H0OvJ2j2ucvvglQUeCUribiaAAhHI1aKcbc0D5IQW5hnbkibl7tFdNNL79mp1kBibvkUuuBXVMOhATLzW8ia6eg/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1"
+                                data-order="4" data-fail="0">
+                                </section>
                         </section>
                     </section>
                 </section>
