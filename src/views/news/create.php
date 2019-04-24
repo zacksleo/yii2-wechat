@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model zacksleo\yii2\wechat\common\models\WechatNews */
 
