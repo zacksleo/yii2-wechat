@@ -35,5 +35,14 @@
       "type": "composer",
       "url": "https://asset-packagist.org"
     }
-  ]
+  ],
+  "extra": {
+    "yii\\composer\\Installer::postInstall": {
+      "copyFiles": [
+        {
+            "vendor/zacksleo/yii2-wechat/src/assets": "frontend/web/"
+        }
+      ]
+    }
+  }
 }
