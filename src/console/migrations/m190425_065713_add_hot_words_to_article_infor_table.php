@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m190425_065713_add_hot_words_to_article_infor_table
  */
-class m190425_065713_add_hot_word最北s_to_article_infor_table extends Migration
+class m190425_065713_add_hot_words_to_article_infor_table extends Migration
 {
     /**
      * {@inheritdoc}
