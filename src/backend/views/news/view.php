@@ -39,6 +39,9 @@ IflyingAsset::register($this);
                         <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="javascript:void(0);" id="post-user"><?= Yii::$app->name; ?></a>
                     </div>
                     <div class="rich_media_content " id="js_content">
+                        <div>
+                            <img style=" width:670px;border-radius:10px;" src="<?= $model->getCossdomThumb(); ?>" />
+                        </div>
                         <?= str_replace('mmbiz.qpic.cn', 'mpt.135editor.com', $model->content); ?>
                     </div>
                     <div class="rich_media_tool" id="js_toobar3">

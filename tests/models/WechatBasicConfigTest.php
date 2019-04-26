@@ -3,7 +3,7 @@
 namespace tests\models;
 
 use tests\TestCase;
-use zacksleo\yii2\wechat\models\WechatBasicConfig;
+use zacksleo\yii2\wechat\common\models\WechatBasicConfig;
 
 /**
  * Class WechatBasicConfigTest

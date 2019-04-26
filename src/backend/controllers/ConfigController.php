@@ -1,6 +1,6 @@
 <?php
 
-namespace zacksleo\yii2\wechat\controllers;
+namespace zacksleo\yii2\wechat\backend\controllers;
 
 use yii;
 use yii\web\Controller;
@@ -27,13 +27,13 @@ class ConfigController extends Controller
             //....
             'wechat-pay' => [
                 'class' => 'pheme\settings\SettingsAction',
-                'modelClass' => 'zacksleo\yii2\wechat\models\WechatPayConfig',
+                'modelClass' => 'zacksleo\yii2\wechat\common\models\WechatPayConfig',
                 //'scenario' => 'site', // Change if you want to re-use the model for multiple setting form.
                 'viewName' => 'wechat-pay'   // The form we need to render
             ],
             'wechat-basic' => [
                 'class' => 'pheme\settings\SettingsAction',
-                'modelClass' => 'zacksleo\yii2\wechat\models\WechatBasicConfig',
+                'modelClass' => 'zacksleo\yii2\wechat\common\models\WechatBasicConfig',
                 //'scenario' => 'site', // Change if you want to re-use the model for multiple setting form.
                 'viewName' => 'wechat-basic'   // The form we need to render
             ],

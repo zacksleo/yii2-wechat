@@ -22,8 +22,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textInput() ?>
 
-    <?= $form->field($model, 'media_id')->textInput() ?>
-
     <?= $form->field($model, 'thumb_media_id')->textInput() ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>

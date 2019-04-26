@@ -1,12 +1,11 @@
 <?php
 
-namespace zacksleo\yii2\wechat\controllers;
+namespace zacksleo\yii2\wechat\backend\controllers;
 
 use yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\modules\console\models\forms\LoginForm;
-use app\models\User;
 
 /**
  * Default controller for the `portal` module

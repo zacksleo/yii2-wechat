@@ -1,9 +1,10 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 $form = ActiveForm::begin([
-    'id' => 'login-form',
+    'id' => 'post-form',
     'options' => ['class' => 'form-horizontal'],
 ]) ?>
 
@@ -42,8 +43,23 @@ $form = ActiveForm::begin([
 
 <div class="form-group">
     <div class="col-lg-offset-1 col-lg-11">
-        <?= Html::submitButton('同步到公众号', ['class' => 'btn btn-primary']) ?>
-        <?= Html::submitButton('同步到公众号并群发', ['class' => 'btn btn-success']) ?>
+        <?= Html::button('同步到公众号', ['id' => 'upload2wechat', 'class' => 'btn btn-primary']) ?>
+        <?= Html::button('同步到公众号并群发', ['id' => 'publish2wechat', 'class' => 'btn btn-success']) ?>
     </div>
 </div>
 <?php ActiveForm::end() ?>
+<?php
+$uploadUrl = Url::to(['news/upload', 'ids' => $ids]);
+$publishUrl = Url::to(['news/publish', 'ids' => $ids]);
+$js = <<<JS
+    $('#upload2wechat').click(function(){
+        $('#post-form').attr('action',"$uploadUrl");
+        $('#post-form').submit();
+    });
+    $('#publish2wechat').click(function(){
+        $('#post-form').attr('action',"$publishUrl");
+        $('#post-form').submit();
+    });
+JS;
+$this->registerJs($js);
+?>
