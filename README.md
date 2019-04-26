@@ -6,7 +6,7 @@
 
 ## 准备工作
 
-### 首先配置 [yii2-easy-wechat](https://github.com/max-wen/yii2-easy-wechat)
+### 首先配置 [yii2-easy-wechat](https://github.com/jianyan74/yii2-easy-wechat)
 
 ### 配置模块依赖
 
@@ -38,7 +38,7 @@
           'class' => 'kartik\tree\Module',
       ],
     'wechat' => [
-        'class' => 'zacksleo\yii2\wechat\Module',
+        'class' => 'zacksleo\yii2\wechat\backend\Module',
     ],
 ]
 

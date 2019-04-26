@@ -1,6 +1,6 @@
 <?php
 
-namespace zacksleo\yii2\wechat;
+namespace zacksleo\yii2\wechat\backend;
 
 use yii;
 use yii\helpers\Url;
@@ -13,7 +13,7 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'zacksleo\yii2\wechat\controllers';
+    public $controllerNamespace = 'zacksleo\yii2\wechat\backend\controllers';
 
     /**
      *

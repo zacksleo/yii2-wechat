@@ -1,6 +1,6 @@
 <?php
 
-namespace zacksleo\yii2\wechat\controllers;
+namespace zacksleo\yii2\wechat\backend\controllers;
 
 use yii\web\Controller;
 

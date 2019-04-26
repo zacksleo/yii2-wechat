@@ -12,7 +12,7 @@ use kartik\tree\models\Tree;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\web\View;
-use zacksleo\yii2\wechat\models\WechatMenu;
+use zacksleo\yii2\wechat\common\models\WechatMenu;
 
 /**
  * @var View       $this

@@ -1,5 +1,5 @@
 <?php
-namespace zacksleo\yii2\wechat\models;
+namespace zacksleo\yii2\wechat\common\models;
 
 use yii\base\Model;
 

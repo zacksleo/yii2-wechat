@@ -1,6 +1,6 @@
 <?php
 
-namespace zacksleo\yii2\wechat\controllers;
+namespace zacksleo\yii2\wechat\backend\controllers;
 
 use yii\web\Controller;
 
@@ -11,17 +11,17 @@ class ReplayController extends Controller
         return [
             'beadded' => [
                 'class' => 'pheme\settings\SettingsAction',
-                'modelClass' => 'zacksleo\wechat\models\WechatPayConfig',
+                'modelClass' => 'zacksleo\wechat\common\models\WechatPayConfig',
                 'viewName' => 'wechat-pay'
             ],
             'autoreply' => [
                 'class' => 'pheme\settings\SettingsAction',
-                'modelClass' => 'zacksleo\wechat\models\WechatBasicConfig',
+                'modelClass' => 'zacksleo\wechat\common\models\WechatBasicConfig',
                 'viewName' => 'wechat-basic'
             ],
             'smartreply' => [
                 'class' => 'pheme\settings\SettingsAction',
-                'modelClass' => 'zacksleo\wechat\models\WechatBasicConfig',
+                'modelClass' => 'zacksleo\wechat\common\models\WechatBasicConfig',
                 'viewName' => 'wechat-basic'
             ],
         ];
