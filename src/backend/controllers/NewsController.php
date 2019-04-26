@@ -10,7 +10,6 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use zacksleo\yii2\wechat\backend\models\NewsPostForm;
 use yii\base\Model;
-use EasyWeChat\Factory;
 
 /**
  * NewsController implements the CRUD actions for WechatNews model.
@@ -94,7 +93,7 @@ class NewsController extends Controller
     public function actionPublish($ids)
     {
         $idArr = explode(',', $ids);
-        $app = Factory::officialAccount(Yii::$app->params['wechat.officialAccount']);
+        $app = Yii::$app->wechat->app;
         if (($res = $this->upload2wechat($ids)) == false) {
             return $this->redirect('index');
         }
