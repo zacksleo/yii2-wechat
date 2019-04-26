@@ -4,7 +4,7 @@ namespace zacksleo\yii2\wechat\backend\models;
 
 use zacksleo\yii2\wechat\common\models\WechatNews;
 
-use EasyWeChat\Factory;
+use yii;
 use EasyWeChat\Kernel\Messages\Article;
 
 class NewsPostForm extends WechatNews

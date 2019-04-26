@@ -22,6 +22,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class WechatNews extends \yii\db\ActiveRecord
 {
+    const STATUS_PREVIEW_FAILED = -4;
     const STATUS_RELEASE_FAILED = -3;
     const STATUS_UPLOAD_FAILED = -2;
     const STATUS_PREPARE_FAILED = -1;
@@ -29,6 +30,7 @@ class WechatNews extends \yii\db\ActiveRecord
     const STATUS_PREPARE_SUCCESS = 1;
     const STATUS_UPLOAD_SUCCESS = 2;
     const STATUS_RELEASE_SUCCESS = 3;
+    const STATUS_PREVIEW_SUCCESS = 4;
 
     /**
      * @inheritdoc
@@ -81,12 +83,18 @@ class WechatNews extends \yii\db\ActiveRecord
 
     public function getCossdomThumb()
     {
-        return str_replace('mmbiz.qpic.cn', 'mpt.135editor.com', $this->thumb);
+        return self::formatImg($this->thumb);
+    }
+
+    public static function formatImg($img)
+    {
+        return str_replace('mmbiz.qpic.cn', 'mpt.135editor.com', $img);
     }
 
     public static function getStatusList()
     {
         return [
+            self::STATUS_PREVIEW_FAILED => '预览失败',
             self::STATUS_RELEASE_FAILED => '发布失败',
             self::STATUS_UPLOAD_FAILED => '上传失败',
             self::STATUS_PREPARE_FAILED => '预处理失败',
@@ -94,6 +102,7 @@ class WechatNews extends \yii\db\ActiveRecord
             self::STATUS_PREPARE_SUCCESS => '预处理成功',
             self::STATUS_UPLOAD_SUCCESS => '上传成功',
             self::STATUS_RELEASE_SUCCESS => '发布成功',
+            self::STATUS_PREPARE_SUCCESS => '预览成功'
         ];
     }
 
