@@ -78,7 +78,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                     'class' => '\kartik\tree\Module',
                 ],
                 'wechat' => [
-                    'class' => 'zacksleo\yii2\wechat\Module',
+                    'class' => 'zacksleo\yii2\wechat\backend\Module',
                     'controllerNamespace' => 'tests\data\controllers'
                 ]
             ],

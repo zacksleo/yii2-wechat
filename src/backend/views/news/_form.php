@@ -14,24 +14,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput() ?>
 
-    <?= $form->field($model, 'content')->textInput() ?>
-
     <?= $form->field($model, 'thumb')->textInput() ?>
 
-    <?= $form->field($model, 'digest')->textInput() ?>
+    <?= $form->field($model, 'digest')->textarea(['rows' => 3]) ?>
 
     <?= $form->field($model, 'url')->textInput() ?>
 
+    <?= $form->field($model, 'content')->textarea(['rows' => 10]) ?>
+
     <?= $form->field($model, 'thumb_media_id')->textInput() ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'released_at')->textInput() ?>
-
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '创建' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
