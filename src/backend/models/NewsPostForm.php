@@ -38,7 +38,7 @@ class NewsPostForm extends WechatNews
                 'only_fans_can_comment' => 1
             ]);
         }
-        $app = Factory::officialAccount(Yii::$app->params['wechat.officialAccount']);
+        $app = Yii::$app->wechat->app;
         $res = $app->material->uploadArticle($articles);
         return $res;
     }
