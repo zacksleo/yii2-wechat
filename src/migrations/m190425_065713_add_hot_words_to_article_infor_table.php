@@ -20,6 +20,6 @@ class m190425_065713_add_hot_word最北s_to_article_infor_table extends Migratio
      */
     public function safeDown()
     {
-        $this->dropColumn('Article_infor','HotWords');
+        $this->dropColumn('Article_infor', 'HotWords');
     }
 }
