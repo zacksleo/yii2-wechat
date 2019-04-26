@@ -9,15 +9,9 @@ use yii\web\AssetBundle;
  */
 class IflyingAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/zacksleo/yii2-wechat/src/assets';
+    public $sourcePath = '@vendor/zacksleo/yii2-wechat/src/assets/iflying';
 
-    public $css = [
-        'iflying/wx-mp.css',
-    ];
-
-    public $publishOptions = [
-        'only' => [
-            'iflying/*',
-        ]
+    public $depends = [
+        'zacksleo\yii2\wechat\assets\MpAsset'
     ];
 }

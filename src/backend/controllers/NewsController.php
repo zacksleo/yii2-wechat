@@ -90,14 +90,19 @@ class NewsController extends Controller
         }
     }
 
-    public function actionPublish($ids)
+    public function actionPublish($ids, $mediaId)
     {
+        if (Yii::$app->request->isGet) {
+            $resource = Yii::$app->wechat->app->material->get($mediaId);
+            return $this->render('publish', [
+                'ids' => $ids,
+                'mediaId' => $mediaId,
+                'items' => $resource['news_item']
+            ]);
+        }
         $idArr = explode(',', $ids);
         $app = Yii::$app->wechat->app;
-        if (($res = $this->upload2wechat($ids)) == false) {
-            return $this->redirect('index');
-        }
-        $res2 = $app->broadcasting->sendNews($res['media_id']);
+        $res2 = $app->broadcasting->sendNews($mediaId);
         if (!empty($res2['errcode'])) {
             Yii::$app->session->setFlash('error', '发送失败：' . $res2['errmsg']);
             WechatNews::updateAll(['status' => WechatNews::STATUS_RELEASE_FAILED], [
@@ -115,10 +120,37 @@ class NewsController extends Controller
         return $this->redirect('index');
     }
 
+    public function actionPreview($ids, $mediaId)
+    {
+        $idArr = explode(',', $ids);
+        $username = Yii::$app->request->post('username');
+        $app = Yii::$app->wechat->app;
+        $res2 = $app->broadcasting->previewNewsByName($mediaId, $username);
+        if (!empty($res2['errcode'])) {
+            Yii::$app->session->setFlash('error', '发送失败：' . $res2['errmsg']);
+            WechatNews::updateAll(['status' => WechatNews::STATUS_PREPARE_FAILED], [
+                'id' => $idArr
+            ]);
+            return $this->redirect('index');
+        }
+        Yii::$app->session->setFlash('success', '发送成功');
+        WechatNews::updateAll([
+            'status' => WechatNews::STATUS_PREPARE_SUCCESS,
+            'released_at' => time(),
+        ], [
+            'id' => $idArr
+        ]);
+        return $this->redirect('index');
+    }
+
     public function actionUpload($ids)
     {
         if (($res = $this->upload2wechat($ids)) != false) {
             Yii::$app->session->setFlash('success', '同步成功: ' . $res['media_id']);
+            return $this->redirect([
+                'publish', 'ids' => $ids,
+                'mediaId' => $res['media_id']
+            ]);
         }
         return $this->redirect('index');
     }
@@ -177,7 +209,7 @@ class NewsController extends Controller
             return false;
         }
         $res = NewsPostForm::upload($models);
-        if (!empty($res['errcode'])) {
+        if (empty($res['errcode'])) {
             return $res;
         }
         Yii::$app->session->setFlash('error', '上传失败：' . $res['errmsg']);
