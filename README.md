@@ -38,7 +38,7 @@
           'class' => 'kartik\tree\Module',
       ],
     'wechat' => [
-        'class' => 'zacksleo\yii2\wechat\Module',
+        'class' => 'zacksleo\yii2\wechat\backend\Module',
     ],
 ]
 
