@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model zacksleo\yii2\wechat\common\models\WechatNews */
 
-$this->title = 'Create Wechat News';
+$this->title = '添加';
 $this->params['breadcrumbs'][] = ['label' => 'Wechat News', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -57,8 +57,8 @@ class WechatNews extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'content' => 'Content',
+            'title' => '标题',
+            'content' => '内容',
             'thumb' => '缩略图',
             'thumb_media_id' => '缩略图 MediaId',
             'digest' => '摘要',
