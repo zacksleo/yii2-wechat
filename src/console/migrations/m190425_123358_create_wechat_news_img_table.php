@@ -17,6 +17,7 @@ class m190425_123358_create_wechat_news_img_table extends Migration
             'hash' => $this->string()->notNull(),
             'url' => $this->string()->notNull(),
             'path' => $this->string()->notNull(),
+            'media_id'=>$this->string(),
         ]);
         $this->createIndex('hash', '{{%wechat_news_img}}', 'hash');
         $this->createIndex('path', '{{%wechat_news_img}}', 'path');
