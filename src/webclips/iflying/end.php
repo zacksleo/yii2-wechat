@@ -17,7 +17,7 @@
     <section data-autoskip="1" style="text-align: center;font-size: 15px;letter-spacing: 1.5px;line-height: 1.75em;">
         <p style="margin-right: 10px;margin-left: 10px;line-height: 26px;">
             <span style="letter-spacing: 0px;font-size: 12px;background-image: initial;background-attachment: initial;background-size: initial;background-origin: initial;background-clip: initial;background-position: initial;background-repeat: initial;">旅游咨询热线：<?= $telephone; ?>
-                <br><br>总部地址<br><?= $address; ?>
+                <br><br>公司地址<br><?= $address; ?>
             </span>
         </p>
         <p><span style="letter-spacing: 0px;font-size: 12px;background-image: initial;background-attachment: initial;background-size: initial;background-origin: initial;background-clip: initial;background-position: initial;background-repeat: initial;"></span>
