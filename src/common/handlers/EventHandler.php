@@ -3,6 +3,7 @@ namespace zacksleo\yii2\wechat\common\handles;
 
 use EasyWeChat\Kernel\Contracts\EventHandlerInterface;
 use zacksleo\yii2\wechat\common\models\WechatReplay;
+use yii;
 
 class EventHandler implements EventHandlerInterface
 {
@@ -19,11 +20,14 @@ class EventHandler implements EventHandlerInterface
             case 'text':
 
                 $replay = WechatReplay::find()->where(['like','keyword',$payload['Content']])->one();
-                if (empty($replay)) {
-                    return Yii::$app->settings->get('content', 'AutoReplay');
-                    break;
+                if (!empty($replay)) {
+                    return $replay->content;
                 }
-                return $replay->content;
+                $content = Yii::$app->settings->get('content', 'AutoReplay');
+                if (!empty($content)) {
+                    return $content;
+                }
+                return null;
                 break;
 
             default:
