@@ -3,6 +3,7 @@
 namespace zacksleo\yii2\wechat\common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%wechat_replay}}".
@@ -47,6 +48,15 @@ class WechatReplay extends \yii\db\ActiveRecord
             'content' => '回复内容',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+            ]
         ];
     }
 }
