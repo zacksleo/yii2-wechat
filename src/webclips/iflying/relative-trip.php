@@ -51,7 +51,7 @@
                                         <section style="clear: both;border-width: 1px;border-style: solid;border-color: rgba(0, 0, 0, 0.64);padding: 1px 5px;transform: rotate(0deg);">
                                             <section class="" data-brushtype="text" style="border-width: 1px;border-style: solid;border-color: rgba(0, 0, 0, 0.64);padding: 4px 1em;box-sizing: border-box;">
                                                 <?php if (isset($trip['appid'])) : ?>
-                                                    <a data-miniprogram-appid="<?= $trip['appid']; ?>" data-miniprogram-path="<?= $trip['url']; ?>" href="">点我了解详情</a>
+                                                    <a data-miniprogram-appid="<?= $trip['appid']; ?>" data-miniprogram-path="<?= $trip['url']; ?>" href="<?= $trip['url']; ?>">点我了解详情</a>
                                                 <?php else : ?>
                                                     <a href="<?= $trip['url']; ?>" data-linktype="2">点我了解详情</a>
                                                 <?php endif ?>
