@@ -47,10 +47,10 @@ class NewsPostForm extends WechatNews
     {
         for ($i = 0; $i < count($models); $i++) {
             for ($j = $i + 1; $j < count($models); $j++) {
-                if ($models[$i] > $models[j]) {
+                if ($models[$i]->number > $models[$j]->number) {
                     $temp = $models[$i];
-                    $models[$i] = $models[$i + 1];
-                    $models[$i + 1] = $temp;
+                    $models[$i] = $models[$j];
+                    $models[$j] = $temp;
                 }
             }
         }
